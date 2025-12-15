@@ -28,7 +28,7 @@ public class MainWindow extends JFrame {
     }
 
     private void setupUI() {
-        setTitle("Juago del Ahorcado");
+        setTitle("Juego del Ahorcado");
         setSize(500, 600);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
@@ -38,7 +38,7 @@ public class MainWindow extends JFrame {
         JPanel infoPanel = new JPanel(new GridLayout(2, 1));
         lblScore = new JLabel(engine.getScoreText(), SwingConstants.CENTER);
         lblScore.setFont(new Font("Arial", Font.BOLD, 18));
-        lblStatus = new JLabel("Welcome", SwingConstants.CENTER);
+        lblStatus = new JLabel("Bienvenido", SwingConstants.CENTER);
         infoPanel.add(lblScore);
         infoPanel.add(lblStatus);
         add(infoPanel, BorderLayout.NORTH);
@@ -59,7 +59,7 @@ public class MainWindow extends JFrame {
         JPanel southPanel = new JPanel();
         txtLetter = new JTextField(4);
         txtLetter.setFont(new Font("Arial", Font.PLAIN, 20));
-        btnGuess = new JButton("Guess");
+        btnGuess = new JButton("Adivinar");
         
         
         btnGuess.addActionListener(e -> processAttempt());
@@ -94,8 +94,8 @@ public class MainWindow extends JFrame {
         if (option != JOptionPane.OK_OPTION) System.exit(0);
 
         String word = new String(pf.getPassword()).trim();
-        if (word.isEmpty() || !word.matches("[a-zA-Z]+")) {
-            JOptionPane.showMessageDialog(this, "Palabra invalida. Solo letras.");
+        if (word.isEmpty() || !word.matches("[a-zA-Z]+") || word.toCharArray().length > 23) {
+            JOptionPane.showMessageDialog(this, "Palabra invalida");
             startRound(); 
             return;
         }

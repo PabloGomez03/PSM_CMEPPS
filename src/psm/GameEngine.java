@@ -12,7 +12,7 @@ public class GameEngine {
     private final int MAX_WINS = 3;
 
     public GameEngine() {
-        this.p1 = new Player("Jugador 1");
+        this.p1 = new Player("Jugador 1"); 
         this.p2 = new Player("Jugador 2");
         this.isP1TurnToGuess = true; 
     }
